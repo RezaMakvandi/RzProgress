@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "rzProgress": {
+      "projectType": "library",
+      "root": "projects/rz-progress",
+      "sourceRoot": "projects/rz-progress/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rz-progress/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rz-progress/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rz-progress/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rz-progress/src/test.ts",
+            "tsConfig": "projects/rz-progress/tsconfig.spec.json",
+            "karmaConfig": "projects/rz-progress/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "rzProgress"
 }

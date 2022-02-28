@@ -16,6 +16,12 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "rzProgress": [
+        "dist/rz-progress/rz-progress",
+        "dist/rz-progress"
+      ]
+    },
     "target": "es2017",
     "module": "es2020",
     "lib": [
