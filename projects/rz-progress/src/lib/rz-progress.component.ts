@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'rzProgress',
@@ -61,7 +61,7 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
     ])
   ]
 })
-export class RzProgressComponent implements OnInit {
+export class RzProgressComponent implements OnInit, AfterViewInit {
 
   shouldFill : boolean = false;
   displayValue: number = 0;
@@ -73,8 +73,14 @@ export class RzProgressComponent implements OnInit {
   ngOnInit(): void {
    
   }
+  ngAfterViewInit(): void {
+   this.checkIfInView()
+  }
   @HostListener('window:scroll', ['$event'])
   isScrolledIntoView(){
+    this.checkIfInView()
+  }
+  checkIfInView(){
     if (this.progressDiv){
       const rect = this.progressDiv.nativeElement.getBoundingClientRect();
       const topShown = rect.top >= 0;
@@ -83,7 +89,6 @@ export class RzProgressComponent implements OnInit {
       
     }
   }
-
   async manageDisplayValue(IsIncrement:boolean){
     if(IsIncrement){
       this.displayValue = 0;
