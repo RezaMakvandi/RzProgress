@@ -30,3 +30,16 @@ Complete config reference:
 |-----------------------|---------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
 | progressValue         | number | The value for percentage of the progress bar                                                    | 50                                            |
 | showValue       | boolean | Whether to show the percentage value in bar or not. Default is false                                                                            | false                                           |
+
+```
+How it works:
+
+```html
+<rzProgress 
+[progressValue]="70"
+[showValue]="true"
+>
+</rzProgress>
+```    
+
+![alt text](https://github.com/RezaMakvandi/RzProgress/blob/master/projects/rz-progress/demo.png?raw=true)  
